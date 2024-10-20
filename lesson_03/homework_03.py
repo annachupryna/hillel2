@@ -11,7 +11,7 @@ alice_in_wonderland = (
     "'I don't much care where ——' said Alice.\n"
     "'Then it doesn't matter which way you go,' said the Cat.\n"
     "'—— so long as I get somewhere,' Alice added as an explanation.\n"
-    "'Oh, you're sure to do that,' said the Cat, 'if you only walk long enough."
+    "'Oh, you're sure to do that,' said the Cat, 'if you only walk long enough.'"
 )
 
 print(alice_in_wonderland)
@@ -96,11 +96,11 @@ cake_price, cake_amount = 350, 1
 water_price, water_amount = 21, 3
 
 money_needed = (
-    (big_pizza_amount * big_pizza_price) +
-    (medium_pizza_amount * medium_pizza_price) +
-    (juice_amount * juice_price) +
-    (cake_amount * cake_price) +
-    (water_amount * water_price)
+    (big_pizza_amount * big_pizza_price)
+    + (medium_pizza_amount * medium_pizza_price)
+    + (juice_amount * juice_price)
+    + (cake_amount * cake_price)
+    + (water_amount * water_price)
 )
 print(f'Irynka needs {money_needed} hryvnias to buy all products for her birthday.')
 
