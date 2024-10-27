@@ -11,7 +11,8 @@ alice_in_wonderland = (
     "'I don't much care where ——' said Alice.\n"
     "'Then it doesn't matter which way you go,' said the Cat.\n"
     "'—— so long as I get somewhere,' Alice added as an explanation.\n"
-    "'Oh, you're sure to do that,' said the Cat, 'if you only walk long enough."
+    "'Oh, you're sure to do that,' said the Cat, "
+    "'if you only walk long enough."
 )
 
 print(alice_in_wonderland)
@@ -102,7 +103,10 @@ money_needed = (
     (cake_amount * cake_price) +
     (water_amount * water_price)
 )
-print(f'Irynka needs {money_needed} hryvnias to buy all products for her birthday.')
+
+print(f'Irynka needs {money_needed} hryvnias to buy '
+      f'all products for her birthday.'
+      )
 
 # task 09
 # Ігор займається фотографією. Він вирішив зібрати всі свої 232
@@ -132,6 +136,8 @@ fuel_required_for_trip = (distance / 100) * fuel_consumption_per_hundred_km
 gas_station_visits = fuel_required_for_trip / tank_capacity
 
 print(
-    f'{int(fuel_required_for_trip)} liters of fuel is required for family trip.\n'
-    f'Minimum {int(gas_station_visits)} times it is required to refill the tank on gas station.'
+    f'{int(fuel_required_for_trip)} liters of fuel is '
+    f'required for family trip.\n'
+    f'Minimum {int(gas_station_visits)} times it is required '
+    f'to refill the tank on gas station.'
 )
