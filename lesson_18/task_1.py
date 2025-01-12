@@ -3,53 +3,107 @@
 import logging
 
 
-def generate_even(m):
-    for num in range(m):
-        if num % 2 == 0:
-            yield num
+class EvenIterator:
+    def __init__(self, n):
+        self.n = n
+        self.current = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current > self.n:
+            raise StopIteration
+
+        while self.current <= self.n:
+            if self.current % 2 == 0:
+                result = self.current
+                self.current += 1
+                return result
+            self.current += 1
+
+        raise StopIteration
 
 
-sample = generate_even(10)
-for val in sample:
-    print(val)
+even_numbers = EvenIterator(10)
+for num in even_numbers:
+    print(num)
 
 
 # Створіть генератор, який генерує послідовність Фібоначчі до певного числа N.
-def fibonacci_generator():
-    a, b = 0, 1
-    while True:
-        yield a
-        a, b = b, a + b
+
+class FibonaciGenerator:
+
+    def __init__(self, n):
+        self.n = n
+        self.a, self.b = 0, 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.a > self.n:
+            raise StopIteration
+
+        while self.a < self.n:
+            result = self.a
+            self.a, self.b = self.b, self.a + self.b
+            return result
 
 
-for num in fibonacci_generator():
-    if num > 100:
-        break
+fib_nums = FibonaciGenerator(10)
+for num in fib_nums:
     print(num)
 
 
 # Ітератори:
 # Реалізуйте ітератор для зворотного виведення елементів списку.
-def list_reverse(data):
-    reversed_list = data[::-1]
-    print(reversed_list)
-    return reversed_list
+
+class ReverseIterator:
+    def __init__(self, array):
+        self.array = array
+        self.index = len(self.array) - 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index < 0:
+            raise StopIteration
+        else:
+            result = self.array[self.index]
+            self.index -= 1
+            return result
 
 
-list_reverse([1, 2, 3])
+rev = ReverseIterator([1, 2, 3, 4, 5])
+for i in rev:
+    print(i)
 
 
 # # Напишіть ітератор, який повертає всі парні числа в діапазоні від 0 до N.
-def return_even(num):
-    current_num = 0
-    while current_num < num:
-        if current_num % 2 == 0:
-            yield current_num
-        current_num += 1
+
+class EvenNumIterator:
+    def __init__(self, limit):
+        self.limit = limit
+        self.current_num = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current_num > self.limit:
+            raise StopIteration
+        else:
+            result = self.current_num
+            self.current_num += 2
+            return result
 
 
-for even_num in return_even(10):
-    print(even_num)
+even = EvenNumIterator(10)
+for i in even:
+    print(i)
+    print('EvenNumIterator')
 
 
 # Декоратори:
@@ -71,6 +125,7 @@ def exception_handle_decorator(func):
             return func(*args)
         except Exception as e:
             print(f'An exception occured: {e}')
+
     return wrapper
 
 
