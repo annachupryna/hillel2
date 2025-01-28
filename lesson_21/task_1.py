@@ -21,7 +21,7 @@ time_list = [log[log.find(key_time) + len(key_time) + 1: log.find(key_time) + le
 
 time_object_list = [datetime.strptime(time_str, "%H:%M:%S") for time_str in time_list]
 
-for count in range(0, len(time_object_list) - 1, 2):
+for count in range(0, len(time_object_list) - 1):
     heart_beat = time_object_list[count] - time_object_list[count + 1]
     if timedelta(seconds=33) > heart_beat > timedelta(seconds=31):
         logging.warning(f"WARNING: Heartbeat у допустимому діапазоні: {heart_beat}")
