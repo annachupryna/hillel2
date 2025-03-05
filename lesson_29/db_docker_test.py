@@ -7,6 +7,6 @@ conn = psycopg2.connect(
     dbname="postgres",
     user="anna",
     password="anna",
-    host="localhost",
-    port=5434
+    host="db",
+    port=5432
 )
